@@ -1,0 +1,13 @@
+id,judul,deskripsi,path_gambar,kategori,urutan,created_at,updated_at
+1,Kantor Utama,Foto depan kantor utama ASN.,uploads/galeri/foto-01.jpg,Kantor,1,2026-01-01 00:00:00,2026-01-01 00:00:00
+2,Ruang Rapat,Foto ruang rapat kantor.,uploads/galeri/foto-02.jpg,Kantor,2,2026-01-01 00:00:00,2026-01-01 00:00:00
+3,Lobby,Foto area lobby penerimaan tamu.,uploads/galeri/foto-03.jpg,Kantor,3,2026-01-01 00:00:00,2026-01-01 00:00:00
+4,Perpustakaan,Foto ruang perpustakaan kantor.,uploads/galeri/foto-04.jpg,Fasilitas,4,2026-01-01 00:00:00,2026-01-01 00:00:00
+5,Kantin,Foto area kantin untuk karyawan.,uploads/galeri/foto-05.jpg,Fasilitas,5,2026-01-01 00:00:00,2026-01-01 00:00:00
+6,Parkir,Foto area parkir kantor.,uploads/galeri/foto-06.jpg,Fasilitas,6,2026-01-01 00:00:00,2026-01-01 00:00:00
+7,Acara Pelatihan,Foto kegiatan pelatihan karyawan.,uploads/galeri/foto-07.jpg,Acara,7,2026-01-01 00:00:00,2026-01-01 00:00:00
+8,Kunjungan Tamu,Foto kunjungan tamu kehormatan.,uploads/galeri/foto-08.jpg,Acara,8,2026-01-01 00:00:00,2026-01-01 00:00:00
+9,Hari Kartini,Foto perayaan Hari Kartini di kantor.,uploads/galeri/foto-09.jpg,Acara,9,2026-01-01 00:00:00,2026-01-01 00:00:00
+10,Hari Kemerdekaan,Foto perayaan Hari Kemerdekaan di kantor.,uploads/galeri/foto-10.jpg,Acara,10,2026-01-01 00:00:00,2026-01-01 00:00:00
+11,Tim IT,Foto bersama tim pengembang IT.,uploads/galeri/foto-11.jpg,Karyawan,11,2026-01-01 00:00:00,2026-01-01 00:00:00
+12,Karyawan Teladan,Foto karyawan terbaik bulan ini.,uploads/galeri/foto-12.jpg,Karyawan,12,2026-01-01 00:00:00,2026-01-01 00:00:00

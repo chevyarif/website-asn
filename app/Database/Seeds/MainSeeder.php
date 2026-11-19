@@ -18,6 +18,10 @@ class MainSeeder extends Seeder
         $this->call('UserSeeder');
         $this->call('ProdukSeeder');
         $this->call('KontakSeeder');
+        $this->call('PengaturanSeeder');
+        $this->call('KategoriArtikelSeeder');
+        $this->call('ArtikelSeeder');
+        $this->call('GaleriSeeder');
 
         echo "✅ Semua seeder berhasil dijalankan!\n";
     }
