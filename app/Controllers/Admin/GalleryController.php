@@ -13,7 +13,7 @@ class GalleryController extends ResourceController
     public function index()
     {
         $kategori = trim((string) $this->request->getGet('kategori'));
-        $status   = trim((string) $this->request->getGet('status'));
+        $q        = trim((string) $this->request->getGet('q'));
 
         $builder = $this->model;
 
@@ -21,8 +21,11 @@ class GalleryController extends ResourceController
             $builder = $builder->where('kategori', $kategori);
         }
 
-        if (in_array($status, ['aktif', 'nonaktif'], true)) {
-            $builder = $builder->where('status', $status);
+        if ($q !== '') {
+            $builder = $builder->groupStart()
+                ->like('judul', $q)
+                ->orLike('deskripsi', $q)
+                ->groupEnd();
         }
 
         $data = $builder->orderBy('urutan', 'ASC')->orderBy('id', 'DESC')->findAll();
@@ -48,12 +51,11 @@ class GalleryController extends ResourceController
     {
         $payload = $this->request->getJSON(true) ?? $this->request->getPost();
         $data    = [
-            'judul'      => $payload['judul'] ?? '',
-            'kategori'   => $payload['kategori'] ?? 'Umum',
-            'gambar'     => $payload['gambar'] ?? '',
-            'keterangan' => $payload['keterangan'] ?? null,
-            'urutan'     => (int) ($payload['urutan'] ?? 0),
-            'status'     => $payload['status'] ?? 'aktif',
+            'judul'       => $payload['judul'] ?? '',
+            'deskripsi'   => $payload['deskripsi'] ?? ($payload['keterangan'] ?? null),
+            'path_gambar' => $payload['path_gambar'] ?? ($payload['gambar'] ?? ''),
+            'kategori'    => $payload['kategori'] ?? 'Umum',
+            'urutan'      => (int) ($payload['urutan'] ?? 0),
         ];
 
         if (! $this->model->insert($data)) {
@@ -77,6 +79,13 @@ class GalleryController extends ResourceController
         }
 
         $payload = $this->request->getJSON(true) ?? $this->request->getRawInput();
+
+        if (isset($payload['gambar']) && ! isset($payload['path_gambar'])) {
+            $payload['path_gambar'] = $payload['gambar'];
+        }
+        if (isset($payload['keterangan']) && ! isset($payload['deskripsi'])) {
+            $payload['deskripsi'] = $payload['keterangan'];
+        }
 
         if (! $this->model->update($id, $payload)) {
             return $this->failValidationErrors($this->model->errors());

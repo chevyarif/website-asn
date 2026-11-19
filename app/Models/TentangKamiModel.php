@@ -6,24 +6,15 @@ use CodeIgniter\Model;
 
 class TentangKamiModel extends Model
 {
-    protected $table            = 'tentang_kami';
+    protected $table            = 'pengaturan';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
-    protected $allowedFields    = [
-        'judul',
-        'visi',
-        'misi',
-        'nilai_inti',
-        'sejarah',
-        'updated_at',
-    ];
+    protected $protectFields    = true;
     protected $useTimestamps    = true;
-    protected $createdField     = '';
-    protected $updatedField     = 'updated_at';
-    protected $validationRules  = [
-        'judul' => 'required|min_length[2]|max_length[180]',
-        'visi'  => 'required|min_length[3]',
-        'misi'  => 'required|min_length[3]',
+
+    protected $allowedFields = [
+        'kunci',
+        'nilai',
     ];
 }

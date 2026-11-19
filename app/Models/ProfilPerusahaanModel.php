@@ -4,21 +4,17 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class UserModel extends Model
+class ProfilPerusahaanModel extends Model
 {
-    protected $table            = 'users';
+    protected $table            = 'pengaturan';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
-    protected $allowedFields    = [
-        'nama',
-        'email',
-        'password',
-        'role',
-        'created_at',
-        'updated_at',
-    ];
+    protected $protectFields    = true;
     protected $useTimestamps    = true;
-    protected $createdField     = 'created_at';
-    protected $updatedField     = 'updated_at';
+
+    protected $allowedFields = [
+        'kunci',
+        'nilai',
+    ];
 }

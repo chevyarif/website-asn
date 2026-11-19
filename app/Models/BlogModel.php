@@ -6,36 +6,30 @@ use CodeIgniter\Model;
 
 class BlogModel extends Model
 {
-    protected $table            = 'blog';
+    protected $table            = 'artikel';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [
+    protected $useTimestamps    = true;
+
+    protected $allowedFields = [
+        'kategori_id',
         'judul',
         'slug',
         'ringkasan',
-        'konten',
+        'isi',
         'gambar',
+        'penulis',
         'status',
-        'penulis_id',
+        'published_at',
     ];
-
-    protected $useTimestamps = true;
-    protected $dateFormat    = 'datetime';
-    protected $createdField  = 'created_at';
-    protected $updatedField  = 'updated_at';
-    protected $deletedField  = 'deleted_at';
 
     protected $validationRules = [
-        'judul'  => 'required|min_length[3]|max_length[255]',
-        'slug'   => 'required|min_length[3]|max_length[255]',
-        'konten' => 'required',
-        'status' => 'permit_empty|in_list[draft,published]',
+        'kategori_id' => 'required|integer',
+        'judul'       => 'required|min_length[3]|max_length[200]',
+        'isi'         => 'required',
+        'status'      => 'permit_empty|in_list[draft,published]',
     ];
-
-    protected $validationMessages   = [];
-    protected $skipValidation       = false;
-    protected $cleanValidationRules = true;
 }
