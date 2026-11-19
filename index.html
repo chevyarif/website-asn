@@ -1,891 +1,903 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ASN - Beranda</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASN - Beranda</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    /* =====================================================
+    <style>
+        /* =====================================================
        PENGATURAN DASAR
        ===================================================== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: 'Poppins', Arial, sans-serif;
-      line-height: 1.6;
-      color: #1f2a37;
-      background-color: #f0f4f8;
-    }
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1f2a37;
+            background-color: #f0f4f8;
+        }
 
-    a {
-      text-decoration: none;
-    }
+        a {
+            text-decoration: none;
+        }
 
-    /* Wadah supaya isi tidak terlalu lebar */
-    .container {
-      max-width: 1050px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+        /* Wadah supaya isi tidak terlalu lebar */
+        .container {
+            max-width: 1050px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
 
-    /* =====================================================
+        /* =====================================================
        NAVBAR
        ===================================================== */
-    header {
-      background-color: #0d3554;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-    }
+        header {
+            background-color: #0d3554;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
 
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 0;
-    }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
 
-    .logo {
-      color: #ffffff;
-      font-size: 26px;
-      font-weight: 700;
-      letter-spacing: 2px;
-    }
+        .logo {
+            color: #ffffff;
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
 
-    .logo span {
-      color: #f5a623;
-    }
+        .logo span {
+            color: #f5a623;
+        }
 
-    .menu {
-      list-style: none;
-      display: flex;
-      gap: 8px;
-    }
+        .menu {
+            list-style: none;
+            display: flex;
+            gap: 8px;
+        }
 
-    .menu a {
-      color: #cce0f0;
-      padding: 8px 14px;
-      border-radius: 20px;
-      font-size: 14px;
-      font-weight: 600;
-      transition: background 0.25s, color 0.25s;
-    }
+        .menu a {
+            color: #cce0f0;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background 0.25s, color 0.25s;
+        }
 
-    .menu a:hover,
-    .menu a.aktif {
-      background-color: #f5a623;
-      color: #1f2a37;
-    }
+        .menu a:hover,
+        .menu a.aktif {
+            background-color: #f5a623;
+            color: #1f2a37;
+        }
 
-    /* Tombol hamburger - hanya muncul di HP */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      background: none;
-      border: none;
-    }
+        /* Tombol hamburger - hanya muncul di HP */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
 
-    .hamburger span {
-      display: block;
-      width: 26px;
-      height: 3px;
-      background: #fff;
-      border-radius: 3px;
-      transition: transform 0.3s;
-    }
+        .hamburger span {
+            display: block;
+            width: 26px;
+            height: 3px;
+            background: #fff;
+            border-radius: 3px;
+            transition: transform 0.3s;
+        }
 
-    /* =====================================================
+        /* =====================================================
        HERO
        ===================================================== */
-    .hero {
-      /* Gradien biru gelap ke biru muda */
-      background: linear-gradient(135deg, #0d3554 0%, #1a6fa3 100%);
-      color: #ffffff;
-      text-align: center;
-      padding: 100px 0 80px;
-      position: relative;
-      overflow: hidden;
-    }
+        .hero {
+            /* Gradien biru gelap ke biru muda */
+            background: linear-gradient(135deg, #0d3554 0%, #1a6fa3 100%);
+            color: #ffffff;
+            text-align: center;
+            padding: 100px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
 
-    /* Lingkaran dekoratif di belakang hero */
-    .hero::before,
-    .hero::after {
-      content: '';
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.05);
-    }
+        /* Lingkaran dekoratif di belakang hero */
+        .hero::before,
+        .hero::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+        }
 
-    .hero::before {
-      width: 400px;
-      height: 400px;
-      top: -100px;
-      left: -100px;
-    }
+        .hero::before {
+            width: 400px;
+            height: 400px;
+            top: -100px;
+            left: -100px;
+        }
 
-    .hero::after {
-      width: 300px;
-      height: 300px;
-      bottom: -80px;
-      right: -60px;
-    }
+        .hero::after {
+            width: 300px;
+            height: 300px;
+            bottom: -80px;
+            right: -60px;
+        }
 
-    .hero-badge {
-      display: inline-block;
-      background: rgba(245,166,35,0.2);
-      border: 1px solid #f5a623;
-      color: #f5a623;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      padding: 6px 18px;
-      border-radius: 20px;
-      margin-bottom: 20px;
-    }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(245, 166, 35, 0.2);
+            border: 1px solid #f5a623;
+            color: #f5a623;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            padding: 6px 18px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
 
-    .hero h1 {
-      font-size: 46px;
-      font-weight: 700;
-      margin-bottom: 18px;
-      line-height: 1.2;
-    }
+        .hero h1 {
+            font-size: 46px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            line-height: 1.2;
+        }
 
-    .hero h1 span {
-      color: #f5a623;
-    }
+        .hero h1 span {
+            color: #f5a623;
+        }
 
-    .hero p {
-      max-width: 560px;
-      margin: 0 auto 36px;
-      color: #cce0f0;
-      font-size: 16px;
-    }
+        .hero p {
+            max-width: 560px;
+            margin: 0 auto 36px;
+            color: #cce0f0;
+            font-size: 16px;
+        }
 
-    .hero-tombol {
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
+        .hero-tombol {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
 
-    /* Tombol utama */
-    .tombol {
-      display: inline-block;
-      background-color: #f5a623;
-      color: #1f2a37;
-      font-weight: 700;
-      padding: 14px 32px;
-      border-radius: 30px;
-      transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
-      box-shadow: 0 4px 14px rgba(245,166,35,0.4);
-    }
+        /* Tombol utama */
+        .tombol {
+            display: inline-block;
+            background-color: #f5a623;
+            color: #1f2a37;
+            font-weight: 700;
+            padding: 14px 32px;
+            border-radius: 30px;
+            transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+            box-shadow: 0 4px 14px rgba(245, 166, 35, 0.4);
+        }
 
-    .tombol:hover {
-      background-color: #ffbe4d;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(245,166,35,0.5);
-    }
+        .tombol:hover {
+            background-color: #ffbe4d;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(245, 166, 35, 0.5);
+        }
 
-    /* Tombol outline */
-    .tombol-outline {
-      display: inline-block;
-      border: 2px solid #ffffff;
-      color: #ffffff;
-      font-weight: 700;
-      padding: 12px 30px;
-      border-radius: 30px;
-      transition: background 0.25s, color 0.25s, transform 0.2s;
-    }
+        /* Tombol outline */
+        .tombol-outline {
+            display: inline-block;
+            border: 2px solid #ffffff;
+            color: #ffffff;
+            font-weight: 700;
+            padding: 12px 30px;
+            border-radius: 30px;
+            transition: background 0.25s, color 0.25s, transform 0.2s;
+        }
 
-    .tombol-outline:hover {
-      background: #ffffff;
-      color: #0d3554;
-      transform: translateY(-2px);
-    }
+        .tombol-outline:hover {
+            background: #ffffff;
+            color: #0d3554;
+            transform: translateY(-2px);
+        }
 
-    /* Statistik kecil di bawah hero */
-    .hero-stats {
-      display: flex;
-      justify-content: center;
-      gap: 48px;
-      margin-top: 56px;
-      flex-wrap: wrap;
-    }
+        /* Statistik kecil di bawah hero */
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-top: 56px;
+            flex-wrap: wrap;
+        }
 
-    .stat-item {
-      text-align: center;
-    }
+        .stat-item {
+            text-align: center;
+        }
 
-    .stat-angka {
-      font-size: 32px;
-      font-weight: 700;
-      color: #f5a623;
-    }
+        .stat-angka {
+            font-size: 32px;
+            font-weight: 700;
+            color: #f5a623;
+        }
 
-    .stat-label {
-      font-size: 13px;
-      color: #9fc8e8;
-    }
+        .stat-label {
+            font-size: 13px;
+            color: #9fc8e8;
+        }
 
-    /* Garis pemisah hero */
-    .divider {
-      width: 100%;
-      height: 60px;
-      background: #f0f4f8;
-      clip-path: ellipse(55% 100% at 50% 100%);
-    }
+        /* Garis pemisah hero */
+        .divider {
+            width: 100%;
+            height: 60px;
+            background: #f0f4f8;
+            clip-path: ellipse(55% 100% at 50% 100%);
+        }
 
-    /* =====================================================
+        /* =====================================================
        SECTION UMUM
        ===================================================== */
-    section {
-      padding: 70px 0;
-    }
+        section {
+            padding: 70px 0;
+        }
 
-    .section-label {
-      text-align: center;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      color: #f5a623;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
+        .section-label {
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            color: #f5a623;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
 
-    section h2 {
-      text-align: center;
-      font-size: 32px;
-      font-weight: 700;
-      margin-bottom: 12px;
-      color: #0d3554;
-    }
+        section h2 {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #0d3554;
+        }
 
-    .section-sub {
-      text-align: center;
-      color: #5a7a92;
-      max-width: 500px;
-      margin: 0 auto 44px;
-      font-size: 15px;
-    }
+        .section-sub {
+            text-align: center;
+            color: #5a7a92;
+            max-width: 500px;
+            margin: 0 auto 44px;
+            font-size: 15px;
+        }
 
-    /* =====================================================
+        /* =====================================================
        KARTU LAYANAN
        ===================================================== */
-    .kotak-wrapper {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
+        .kotak-wrapper {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
 
-    .kotak {
-      flex: 1;
-      min-width: 240px;
-      background-color: #ffffff;
-      padding: 32px 28px;
-      border-radius: 16px;
-      border: 1px solid #dde8f0;
-      box-shadow: 0 2px 12px rgba(13,53,84,0.07);
-      transition: transform 0.25s, box-shadow 0.25s;
-      position: relative;
-      overflow: hidden;
-    }
+        .kotak {
+            flex: 1;
+            min-width: 240px;
+            background-color: #ffffff;
+            padding: 32px 28px;
+            border-radius: 16px;
+            border: 1px solid #dde8f0;
+            box-shadow: 0 2px 12px rgba(13, 53, 84, 0.07);
+            transition: transform 0.25s, box-shadow 0.25s;
+            position: relative;
+            overflow: hidden;
+        }
 
-    .kotak::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 4px;
-      height: 100%;
-      background: linear-gradient(to bottom, #f5a623, #0d3554);
-      border-radius: 4px 0 0 4px;
-    }
+        .kotak::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #f5a623, #0d3554);
+            border-radius: 4px 0 0 4px;
+        }
 
-    .kotak:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 30px rgba(13,53,84,0.14);
-    }
+        .kotak:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(13, 53, 84, 0.14);
+        }
 
-    /* Ikon emoji layanan */
-    .kotak-ikon {
-      font-size: 36px;
-      margin-bottom: 14px;
-      display: block;
-    }
+        /* Ikon emoji layanan */
+        .kotak-ikon {
+            font-size: 36px;
+            margin-bottom: 14px;
+            display: block;
+        }
 
-    .kotak h3 {
-      margin-bottom: 10px;
-      color: #0d3554;
-      font-size: 18px;
-      font-weight: 700;
-    }
+        .kotak h3 {
+            margin-bottom: 10px;
+            color: #0d3554;
+            font-size: 18px;
+            font-weight: 700;
+        }
 
-    .kotak p {
-      color: #5a7a92;
-      font-size: 14px;
-    }
+        .kotak p {
+            color: #5a7a92;
+            font-size: 14px;
+        }
 
-    .kotak-link {
-      display: inline-block;
-      margin-top: 16px;
-      font-size: 14px;
-      font-weight: 600;
-      color: #1a6fa3;
-    }
+        .kotak-link {
+            display: inline-block;
+            margin-top: 16px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a6fa3;
+        }
 
-    .kotak-link:hover {
-      text-decoration: underline;
-    }
+        .kotak-link:hover {
+            text-decoration: underline;
+        }
 
-    /* =====================================================
+        /* =====================================================
        BAGIAN TENTANG (dengan 2 kolom)
        ===================================================== */
-    .tentang-wrapper {
-      display: flex;
-      align-items: center;
-      gap: 60px;
-      flex-wrap: wrap;
-    }
+        .tentang-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
 
-    .tentang-gambar {
-      flex: 1;
-      min-width: 260px;
-      text-align: center;
-    }
+        .tentang-gambar {
+            flex: 1;
+            min-width: 260px;
+            text-align: center;
+        }
 
-    /* Placeholder gambar dengan gradien */
-    .gambar-placeholder {
-      width: 100%;
-      max-width: 340px;
-      height: 300px;
-      background: linear-gradient(135deg, #0d3554, #1a6fa3);
-      border-radius: 20px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 80px;
-      box-shadow: 0 10px 30px rgba(13,53,84,0.2);
-    }
+        /* Placeholder gambar dengan gradien */
+        .gambar-placeholder {
+            width: 100%;
+            max-width: 340px;
+            height: 300px;
+            background: linear-gradient(135deg, #0d3554, #1a6fa3);
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            box-shadow: 0 10px 30px rgba(13, 53, 84, 0.2);
+        }
 
-    .tentang-teks {
-      flex: 1;
-      min-width: 260px;
-    }
+        .tentang-teks {
+            flex: 1;
+            min-width: 260px;
+        }
 
-    .tentang-teks p {
-      color: #4a6678;
-      margin-bottom: 16px;
-      font-size: 15px;
-    }
+        .tentang-teks p {
+            color: #4a6678;
+            margin-bottom: 16px;
+            font-size: 15px;
+        }
 
-    /* Daftar keunggulan */
-    .ceklis {
-      list-style: none;
-      margin: 20px 0 28px;
-    }
+        /* Daftar keunggulan */
+        .ceklis {
+            list-style: none;
+            margin: 20px 0 28px;
+        }
 
-    .ceklis li {
-      padding: 6px 0;
-      color: #1f2a37;
-      font-size: 15px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+        .ceklis li {
+            padding: 6px 0;
+            color: #1f2a37;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-    .ceklis li::before {
-      content: '✔';
-      color: #f5a623;
-      font-size: 15px;
-      flex-shrink: 0;
-    }
+        .ceklis li::before {
+            content: '✔';
+            color: #f5a623;
+            font-size: 15px;
+            flex-shrink: 0;
+        }
 
-    /* =====================================================
+        /* =====================================================
        BAGIAN TESTIMONI
        ===================================================== */
-    .testimoni-bg {
-      background: linear-gradient(135deg, #0d3554 0%, #1a6fa3 100%);
-    }
+        .testimoni-bg {
+            background: linear-gradient(135deg, #0d3554 0%, #1a6fa3 100%);
+        }
 
-    .testimoni-bg h2,
-    .testimoni-bg .section-label {
-      color: #fff;
-    }
+        .testimoni-bg h2,
+        .testimoni-bg .section-label {
+            color: #fff;
+        }
 
-    .testimoni-bg .section-sub {
-      color: #9fc8e8;
-    }
+        .testimoni-bg .section-sub {
+            color: #9fc8e8;
+        }
 
-    .testimoni-wrapper {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
+        .testimoni-wrapper {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
 
-    .testimoni-kotak {
-      flex: 1;
-      min-width: 240px;
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 16px;
-      padding: 28px;
-      backdrop-filter: blur(4px);
-    }
+        .testimoni-kotak {
+            flex: 1;
+            min-width: 240px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            padding: 28px;
+            backdrop-filter: blur(4px);
+        }
 
-    .bintang {
-      color: #f5a623;
-      font-size: 18px;
-      margin-bottom: 12px;
-      letter-spacing: 2px;
-    }
+        .bintang {
+            color: #f5a623;
+            font-size: 18px;
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+        }
 
-    .testimoni-kotak p {
-      color: #cce0f0;
-      font-size: 14px;
-      font-style: italic;
-      margin-bottom: 20px;
-    }
+        .testimoni-kotak p {
+            color: #cce0f0;
+            font-size: 14px;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
 
-    .testimoni-nama {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+        .testimoni-nama {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
-    .avatar {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #f5a623, #ffbe4d);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      color: #1f2a37;
-      font-size: 16px;
-    }
+        .avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f5a623, #ffbe4d);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #1f2a37;
+            font-size: 16px;
+        }
 
-    .nama-teks strong {
-      display: block;
-      color: #fff;
-      font-size: 14px;
-    }
+        .nama-teks strong {
+            display: block;
+            color: #fff;
+            font-size: 14px;
+        }
 
-    .nama-teks span {
-      color: #9fc8e8;
-      font-size: 12px;
-    }
+        .nama-teks span {
+            color: #9fc8e8;
+            font-size: 12px;
+        }
 
-    /* =====================================================
+        /* =====================================================
        CTA (ajakan)
        ===================================================== */
-    .cta {
-      text-align: center;
-      padding: 80px 0;
-    }
+        .cta {
+            text-align: center;
+            padding: 80px 0;
+        }
 
-    .cta-kotak {
-      background: linear-gradient(135deg, #0d3554 0%, #1a6fa3 100%);
-      border-radius: 24px;
-      padding: 60px 40px;
-      color: #fff;
-    }
+        .cta-kotak {
+            background: linear-gradient(135deg, #0d3554 0%, #1a6fa3 100%);
+            border-radius: 24px;
+            padding: 60px 40px;
+            color: #fff;
+        }
 
-    .cta-kotak h2 {
-      color: #fff;
-      font-size: 34px;
-      margin-bottom: 14px;
-    }
+        .cta-kotak h2 {
+            color: #fff;
+            font-size: 34px;
+            margin-bottom: 14px;
+        }
 
-    .cta-kotak p {
-      color: #9fc8e8;
-      max-width: 480px;
-      margin: 0 auto 32px;
-    }
+        .cta-kotak p {
+            color: #9fc8e8;
+            max-width: 480px;
+            margin: 0 auto 32px;
+        }
 
-    /* =====================================================
+        /* =====================================================
        FOOTER
        ===================================================== */
-    footer {
-      background-color: #081e30;
-      color: #7899ae;
-      padding: 36px 0;
-    }
+        footer {
+            background-color: #081e30;
+            color: #7899ae;
+            padding: 36px 0;
+        }
 
-    .footer-isi {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
+        .footer-isi {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
 
-    .footer-logo {
-      font-size: 22px;
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: 2px;
-    }
+        .footer-logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 2px;
+        }
 
-    .footer-logo span {
-      color: #f5a623;
-    }
+        .footer-logo span {
+            color: #f5a623;
+        }
 
-    .footer-menu {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+        .footer-menu {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
 
-    .footer-menu a {
-      color: #7899ae;
-      font-size: 14px;
-      transition: color 0.2s;
-    }
+        .footer-menu a {
+            color: #7899ae;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
 
-    .footer-menu a:hover {
-      color: #f5a623;
-    }
+        .footer-menu a:hover {
+            color: #f5a623;
+        }
 
-    .footer-copy {
-      text-align: center;
-      margin-top: 24px;
-      padding-top: 20px;
-      border-top: 1px solid #0d2d44;
-      font-size: 13px;
-    }
+        .footer-copy {
+            text-align: center;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid #0d2d44;
+            font-size: 13px;
+        }
 
-    /* =====================================================
+        /* =====================================================
        ANIMASI MASUK (sederhana)
        ===================================================== */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
 
-    .fade-in.muncul {
-      opacity: 1;
-      transform: translateY(0);
-    }
+        .fade-in.muncul {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-    /* Jeda animasi untuk masing-masing kartu */
-    .fade-in:nth-child(2) { transition-delay: 0.1s; }
-    .fade-in:nth-child(3) { transition-delay: 0.2s; }
+        /* Jeda animasi untuk masing-masing kartu */
+        .fade-in:nth-child(2) {
+            transition-delay: 0.1s;
+        }
 
-    /* =====================================================
+        .fade-in:nth-child(3) {
+            transition-delay: 0.2s;
+        }
+
+        /* =====================================================
        TAMPILAN HP
        ===================================================== */
-    @media (max-width: 640px) {
-      .hamburger {
-        display: flex;
-      }
+        @media (max-width: 640px) {
+            .hamburger {
+                display: flex;
+            }
 
-      .menu {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        padding: 10px 0;
-      }
+            .menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                padding: 10px 0;
+            }
 
-      .menu.buka {
-        display: flex;
-      }
+            .menu.buka {
+                display: flex;
+            }
 
-      .menu a {
-        padding: 10px 16px;
-        border-radius: 8px;
-      }
+            .menu a {
+                padding: 10px 16px;
+                border-radius: 8px;
+            }
 
-      .navbar {
-        flex-wrap: wrap;
-        gap: 8px;
-      }
+            .navbar {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
 
-      .hero {
-        padding: 70px 0 60px;
-      }
+            .hero {
+                padding: 70px 0 60px;
+            }
 
-      .hero h1 {
-        font-size: 30px;
-      }
+            .hero h1 {
+                font-size: 30px;
+            }
 
-      .hero-stats {
-        gap: 28px;
-      }
+            .hero-stats {
+                gap: 28px;
+            }
 
-      section h2 {
-        font-size: 26px;
-      }
+            section h2 {
+                font-size: 26px;
+            }
 
-      .cta-kotak h2 {
-        font-size: 24px;
-      }
+            .cta-kotak h2 {
+                font-size: 24px;
+            }
 
-      .cta-kotak {
-        padding: 40px 20px;
-      }
+            .cta-kotak {
+                padding: 40px 20px;
+            }
 
-      .footer-isi {
-        flex-direction: column;
-        text-align: center;
-      }
-    }
-  </style>
+            .footer-isi {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <!-- ============================================================
+    <!-- ============================================================
        HEADER / NAVBAR
        ============================================================ -->
-  <header>
-    <div class="container navbar">
-      <div class="logo">A<span>S</span>N</div>
+    <header>
+        <div class="container navbar">
+            <div class="logo">A<span>S</span>N</div>
 
-      <!-- Tombol hamburger untuk HP -->
-      <button class="hamburger" id="hamburger" aria-label="Buka menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+            <!-- Tombol hamburger untuk HP -->
+            <button class="hamburger" id="hamburger" aria-label="Buka menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-      <ul class="menu" id="menu">
-        <li><a href="index.html" class="aktif">Beranda</a></li>
-        <li><a href="about-us.html">Tentang Kami</a></li>
-        <li><a href="product-and-service.html">Produk &amp; Layanan</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Kontak</a></li>
-      </ul>
-    </div>
-  </header>
+            <ul class="menu" id="menu">
+                <li><a href="index.html" class="aktif">Beranda</a></li>
+                <li><a href="about-us.html">Tentang Kami</a></li>
+                <li><a href="product-and-service.html">Produk &amp; Layanan</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Kontak</a></li>
+            </ul>
+        </div>
+    </header>
 
-  <!-- ============================================================
+    <!-- ============================================================
        HERO
        ============================================================ -->
-  <div class="hero">
-    <div class="container">
-      <div class="hero-badge">🚀 Solusi Terpercaya Untuk Anda</div>
-      <h1>Selamat Datang di<br><span>Website ASN</span></h1>
-      <p>Kami membantu Anda menemukan solusi yang tepat dengan layanan yang mudah, cepat, dan terpercaya.</p>
-      <div class="hero-tombol">
-        <a href="product-and-service.html" class="tombol">Lihat Layanan Kami</a>
-        <a href="contact.html" class="tombol-outline">Hubungi Kami</a>
-      </div>
+    <div class="hero">
+        <div class="container">
+            <div class="hero-badge">🚀 Solusi Terpercaya Untuk Anda</div>
+            <h1>Selamat Datang di<br><span>Website ASN</span></h1>
+            <p>Kami membantu Anda menemukan solusi yang tepat dengan layanan yang mudah, cepat, dan terpercaya.</p>
+            <div class="hero-tombol">
+                <a href="product-and-service.html" class="tombol">Lihat Layanan Kami</a>
+                <a href="contact.html" class="tombol-outline">Hubungi Kami</a>
+            </div>
 
-      <!-- Statistik singkat -->
-      <div class="hero-stats">
-        <div class="stat-item">
-          <div class="stat-angka">200+</div>
-          <div class="stat-label">Pelanggan Puas</div>
+            <!-- Statistik singkat -->
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-angka">200+</div>
+                    <div class="stat-label">Pelanggan Puas</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-angka">5+</div>
+                    <div class="stat-label">Tahun Pengalaman</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-angka">50+</div>
+                    <div class="stat-label">Proyek Selesai</div>
+                </div>
+            </div>
         </div>
-        <div class="stat-item">
-          <div class="stat-angka">5+</div>
-          <div class="stat-label">Tahun Pengalaman</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-angka">50+</div>
-          <div class="stat-label">Proyek Selesai</div>
-        </div>
-      </div>
     </div>
-  </div>
-  <!-- Lekukan di bawah hero -->
-  <div class="divider"></div>
+    <!-- Lekukan di bawah hero -->
+    <div class="divider"></div>
 
-  <!-- ============================================================
+    <!-- ============================================================
        LAYANAN KAMI
        ============================================================ -->
-  <section>
-    <div class="container">
-      <p class="section-label">✦ Apa yang Kami Tawarkan</p>
-      <h2>Layanan Kami</h2>
-      <p class="section-sub">Kami menyediakan berbagai layanan berkualitas yang siap membantu kebutuhan Anda.</p>
+    <section>
+        <div class="container">
+            <p class="section-label">✦ Apa yang Kami Tawarkan</p>
+            <h2>Layanan Kami</h2>
+            <p class="section-sub">Kami menyediakan berbagai layanan berkualitas yang siap membantu kebutuhan Anda.</p>
 
-      <div class="kotak-wrapper">
-        <div class="kotak fade-in">
-          <span class="kotak-ikon">💡</span>
-          <h3>Layanan Satu</h3>
-          <p>Penjelasan singkat tentang layanan pertama. Ganti dengan isi yang sesuai tugasmu.</p>
-          <a href="product-and-service.html" class="kotak-link">Pelajari lebih lanjut →</a>
+            <div class="kotak-wrapper">
+                <div class="kotak fade-in">
+                    <span class="kotak-ikon">💡</span>
+                    <h3>Layanan Satu</h3>
+                    <p>Penjelasan singkat tentang layanan pertama. Ganti dengan isi yang sesuai tugasmu.</p>
+                    <a href="product-and-service.html" class="kotak-link">Pelajari lebih lanjut →</a>
+                </div>
+                <div class="kotak fade-in">
+                    <span class="kotak-ikon">⚙️</span>
+                    <h3>Layanan Dua</h3>
+                    <p>Penjelasan singkat tentang layanan kedua. Cukup satu atau dua kalimat saja.</p>
+                    <a href="product-and-service.html" class="kotak-link">Pelajari lebih lanjut →</a>
+                </div>
+                <div class="kotak fade-in">
+                    <span class="kotak-ikon">🎯</span>
+                    <h3>Layanan Tiga</h3>
+                    <p>Penjelasan singkat tentang layanan ketiga. Bisa juga ditambah atau dikurangi.</p>
+                    <a href="product-and-service.html" class="kotak-link">Pelajari lebih lanjut →</a>
+                </div>
+            </div>
         </div>
-        <div class="kotak fade-in">
-          <span class="kotak-ikon">⚙️</span>
-          <h3>Layanan Dua</h3>
-          <p>Penjelasan singkat tentang layanan kedua. Cukup satu atau dua kalimat saja.</p>
-          <a href="product-and-service.html" class="kotak-link">Pelajari lebih lanjut →</a>
-        </div>
-        <div class="kotak fade-in">
-          <span class="kotak-ikon">🎯</span>
-          <h3>Layanan Tiga</h3>
-          <p>Penjelasan singkat tentang layanan ketiga. Bisa juga ditambah atau dikurangi.</p>
-          <a href="product-and-service.html" class="kotak-link">Pelajari lebih lanjut →</a>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================================
+    <!-- ============================================================
        TENTANG KAMI (2 kolom)
        ============================================================ -->
-  <section style="background: #fff;">
-    <div class="container">
-      <div class="tentang-wrapper">
+    <section style="background: #fff;">
+        <div class="container">
+            <div class="tentang-wrapper">
 
-        <!-- Kolom kiri: placeholder gambar -->
-        <div class="tentang-gambar fade-in">
-          <div class="gambar-placeholder">🏢</div>
+                <!-- Kolom kiri: placeholder gambar -->
+                <div class="tentang-gambar fade-in">
+                    <div class="gambar-placeholder">🏢</div>
+                </div>
+
+                <!-- Kolom kanan: teks -->
+                <div class="tentang-teks fade-in">
+                    <p class="section-label" style="text-align:left;">✦ Kenali Kami</p>
+                    <h2 style="text-align:left; margin-bottom:16px;">Siapa Kami?</h2>
+                    <p>ASN adalah tim yang berkomitmen memberikan pelayanan terbaik. Kami percaya bahwa kerja sama dan
+                        kejujuran adalah kunci untuk hasil yang baik.</p>
+                    <p>Dengan pengalaman bertahun-tahun, kami siap melayani Anda dengan sepenuh hati dan memberikan
+                        solusi yang tepat sasaran.</p>
+
+                    <ul class="ceklis">
+                        <li>Tim yang berpengalaman dan profesional</li>
+                        <li>Layanan cepat dan responsif</li>
+                        <li>Harga yang transparan dan terjangkau</li>
+                        <li>Kepuasan pelanggan adalah prioritas kami</li>
+                    </ul>
+
+                    <a href="about-us.html" class="tombol" style="background:#0d3554; color:#fff; box-shadow:none;">
+                        Baca Selengkapnya
+                    </a>
+                </div>
+
+            </div>
         </div>
+    </section>
 
-        <!-- Kolom kanan: teks -->
-        <div class="tentang-teks fade-in">
-          <p class="section-label" style="text-align:left;">✦ Kenali Kami</p>
-          <h2 style="text-align:left; margin-bottom:16px;">Siapa Kami?</h2>
-          <p>ASN adalah tim yang berkomitmen memberikan pelayanan terbaik. Kami percaya bahwa kerja sama dan kejujuran adalah kunci untuk hasil yang baik.</p>
-          <p>Dengan pengalaman bertahun-tahun, kami siap melayani Anda dengan sepenuh hati dan memberikan solusi yang tepat sasaran.</p>
-
-          <ul class="ceklis">
-            <li>Tim yang berpengalaman dan profesional</li>
-            <li>Layanan cepat dan responsif</li>
-            <li>Harga yang transparan dan terjangkau</li>
-            <li>Kepuasan pelanggan adalah prioritas kami</li>
-          </ul>
-
-          <a href="about-us.html" class="tombol" style="background:#0d3554; color:#fff; box-shadow:none;">
-            Baca Selengkapnya
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
+    <!-- ============================================================
        TESTIMONI
        ============================================================ -->
-  <section class="testimoni-bg">
-    <div class="container">
-      <p class="section-label">✦ Kata Mereka</p>
-      <h2>Apa Kata Pelanggan Kami?</h2>
-      <p class="section-sub">Kepercayaan pelanggan adalah semangat terbesar kami.</p>
+    <section class="testimoni-bg">
+        <div class="container">
+            <p class="section-label">✦ Kata Mereka</p>
+            <h2>Apa Kata Pelanggan Kami?</h2>
+            <p class="section-sub">Kepercayaan pelanggan adalah semangat terbesar kami.</p>
 
-      <div class="testimoni-wrapper">
-        <div class="testimoni-kotak fade-in">
-          <div class="bintang">★★★★★</div>
-          <p>"Layanannya sangat memuaskan! Tim ASN bekerja dengan cepat dan profesional. Sangat direkomendasikan."</p>
-          <div class="testimoni-nama">
-            <div class="avatar">A</div>
-            <div class="nama-teks">
-              <strong>Andi Saputra</strong>
-              <span>Pelanggan Setia</span>
+            <div class="testimoni-wrapper">
+                <div class="testimoni-kotak fade-in">
+                    <div class="bintang">★★★★★</div>
+                    <p>"Layanannya sangat memuaskan! Tim ASN bekerja dengan cepat dan profesional. Sangat
+                        direkomendasikan."</p>
+                    <div class="testimoni-nama">
+                        <div class="avatar">A</div>
+                        <div class="nama-teks">
+                            <strong>Andi Saputra</strong>
+                            <span>Pelanggan Setia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimoni-kotak fade-in">
+                    <div class="bintang">★★★★★</div>
+                    <p>"Saya sangat senang dengan hasilnya. Proses komunikasinya mudah dan hasilnya melebihi ekspektasi
+                        saya."</p>
+                    <div class="testimoni-nama">
+                        <div class="avatar">B</div>
+                        <div class="nama-teks">
+                            <strong>Budi Hartono</strong>
+                            <span>Mitra Bisnis</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimoni-kotak fade-in">
+                    <div class="bintang">★★★★☆</div>
+                    <p>"Responsif dan jujur dalam memberikan informasi. ASN benar-benar membantu usaha saya berkembang."
+                    </p>
+                    <div class="testimoni-nama">
+                        <div class="avatar">C</div>
+                        <div class="nama-teks">
+                            <strong>Citra Dewi</strong>
+                            <span>Pengusaha Muda</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
+    </section>
 
-        <div class="testimoni-kotak fade-in">
-          <div class="bintang">★★★★★</div>
-          <p>"Saya sangat senang dengan hasilnya. Proses komunikasinya mudah dan hasilnya melebihi ekspektasi saya."</p>
-          <div class="testimoni-nama">
-            <div class="avatar">B</div>
-            <div class="nama-teks">
-              <strong>Budi Hartono</strong>
-              <span>Mitra Bisnis</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimoni-kotak fade-in">
-          <div class="bintang">★★★★☆</div>
-          <p>"Responsif dan jujur dalam memberikan informasi. ASN benar-benar membantu usaha saya berkembang."</p>
-          <div class="testimoni-nama">
-            <div class="avatar">C</div>
-            <div class="nama-teks">
-              <strong>Citra Dewi</strong>
-              <span>Pengusaha Muda</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
+    <!-- ============================================================
        CTA (Call to Action)
        ============================================================ -->
-  <section class="cta">
-    <div class="container">
-      <div class="cta-kotak fade-in">
-        <h2>Siap Bekerja Sama dengan Kami?</h2>
-        <p>Hubungi tim kami sekarang dan dapatkan konsultasi gratis. Kami siap membantu Anda!</p>
-        <div class="hero-tombol">
-          <a href="contact.html" class="tombol">Hubungi Kami Sekarang</a>
-          <a href="product-and-service.html" class="tombol-outline">Lihat Semua Layanan</a>
+    <section class="cta">
+        <div class="container">
+            <div class="cta-kotak fade-in">
+                <h2>Siap Bekerja Sama dengan Kami?</h2>
+                <p>Hubungi tim kami sekarang dan dapatkan konsultasi gratis. Kami siap membantu Anda!</p>
+                <div class="hero-tombol">
+                    <a href="contact.html" class="tombol">Hubungi Kami Sekarang</a>
+                    <a href="product-and-service.html" class="tombol-outline">Lihat Semua Layanan</a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================================
+    <!-- ============================================================
        FOOTER
        ============================================================ -->
-  <footer>
-    <div class="container">
-      <div class="footer-isi">
-        <div class="footer-logo">A<span>S</span>N</div>
-        <ul class="footer-menu">
-          <li><a href="index.html">Beranda</a></li>
-          <li><a href="about-us.html">Tentang Kami</a></li>
-          <li><a href="product-and-service.html">Produk &amp; Layanan</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="contact.html">Kontak</a></li>
-        </ul>
-      </div>
-      <div class="footer-copy">
-        <p>&copy; 2026 ASN. Semua hak dilindungi. Dibuat dengan ❤️</p>
-      </div>
-    </div>
-  </footer>
+    <footer>
+        <div class="container">
+            <div class="footer-isi">
+                <div class="footer-logo">A<span>S</span>N</div>
+                <ul class="footer-menu">
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="about-us.html">Tentang Kami</a></li>
+                    <li><a href="product-and-service.html">Produk &amp; Layanan</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Kontak</a></li>
+                </ul>
+            </div>
+            <div class="footer-copy">
+                <p>&copy; 2026 ASN. Semua hak dilindungi. Dibuat dengan ❤️</p>
+            </div>
+        </div>
+    </footer>
 
-  <!-- ============================================================
+    <!-- ============================================================
        JAVASCRIPT SEDERHANA
        ============================================================ -->
-  <script>
-    // ----- 1. Hamburger menu (untuk HP) -----
-    const hamburger = document.getElementById('hamburger');
-    const menu = document.getElementById('menu');
+    <script>
+        // ----- 1. Hamburger menu (untuk HP) -----
+        const hamburger = document.getElementById('hamburger');
+        const menu = document.getElementById('menu');
 
-    hamburger.addEventListener('click', function () {
-      menu.classList.toggle('buka');
-    });
+        hamburger.addEventListener('click', function () {
+            menu.classList.toggle('buka');
+        });
 
-    // ----- 2. Animasi fade-in saat scroll -----
-    // IntersectionObserver: mengamati kapan elemen masuk layar
-    const observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('muncul'); // tambahkan kelas "muncul"
-          observer.unobserve(entry.target);     // hentikan pengamatan
-        }
-      });
-    }, { threshold: 0.15 }); // aktif saat 15% elemen terlihat
+        // ----- 2. Animasi fade-in saat scroll -----
+        // IntersectionObserver: mengamati kapan elemen masuk layar
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('muncul'); // tambahkan kelas "muncul"
+                    observer.unobserve(entry.target);     // hentikan pengamatan
+                }
+            });
+        }, { threshold: 0.15 }); // aktif saat 15% elemen terlihat
 
-    // Daftarkan semua elemen .fade-in
-    document.querySelectorAll('.fade-in').forEach(function (el) {
-      observer.observe(el);
-    });
-  </script>
+        // Daftarkan semua elemen .fade-in
+        document.querySelectorAll('.fade-in').forEach(function (el) {
+            observer.observe(el);
+        });
+    </script>
 
 </body>
+
 </html>
