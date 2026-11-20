@@ -1,0 +1,23 @@
+name: Deploy ke Server Linux
+
+on:
+  push:
+    branches:
+      - main # Otomatis jalan saat ada push ke branch main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Eksekusi Perintah Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          port: 22
+          script: |
+            cd /var/www/pt-asn.co.id/html
+            git pull origin main
+            composer install --no-dev --optimize-autoloader
+            php spark migrate
