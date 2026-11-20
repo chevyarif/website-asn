@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 900" preserveAspectRatio="xMidYMid slice">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#061a38"/><stop offset=".48" stop-color="#0b4f91"/><stop offset="1" stop-color="#39a6e8"/></linearGradient>
+ <linearGradient id="wave1" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#0b2850"/><stop offset="1" stop-color="#1685cc"/></linearGradient>
+ <linearGradient id="wave2" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#1b75b8"/><stop offset="1" stop-color="#8bd3ff"/></linearGradient>
+ <radialGradient id="glow"><stop stop-color="#d8f2ff" stop-opacity=".42"/><stop offset="1" stop-color="#d8f2ff" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="1920" height="900" fill="url(#bg)"/>
+<circle cx="1480" cy="180" r="520" fill="url(#glow)"/>
+<g opacity=".16" fill="none" stroke="#d9f1ff" stroke-width="2"><path d="M950 0V900M1100 0V900M1250 0V900M1400 0V900M1550 0V900M1700 0V900M1850 0V900"/><path d="M900 120H1920M900 270H1920M900 420H1920M900 570H1920M900 720H1920"/></g>
+<path d="M0 650 C350 540 560 770 900 650 S1500 470 1920 610 V900 H0Z" fill="url(#wave1)" opacity=".95"/>
+<path d="M0 730 C330 620 620 850 980 710 S1570 570 1920 690 V900 H0Z" fill="url(#wave2)" opacity=".72"/>
+<path d="M0 805 C420 690 720 900 1100 790 S1610 680 1920 770 V900 H0Z" fill="#eaf6ff" opacity=".96"/>
+<g opacity=".12" fill="#fff"><circle cx="1510" cy="160" r="7"/><circle cx="1580" cy="220" r="4"/><circle cx="1690" cy="120" r="5"/><circle cx="1780" cy="270" r="8"/><circle cx="1390" cy="300" r="4"/></g>
+</svg>
