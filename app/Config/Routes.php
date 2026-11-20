@@ -6,7 +6,11 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'Home::index');
-
+$routes->get('/tentang-kami', 'Home::about');
+$routes->get('/produk-layanan', 'Home::products');
+$routes->get('/kontak', 'Home::contact');
+$routes->get('/gallery', 'Home::gallery');
+$routes->get('/blog-detail', 'Home::blogDetail');
 $routes->group('api/admin', static function ($routes) {
     // Authentication Login
     $routes->post('login', 'Admin\AuthController::login');
