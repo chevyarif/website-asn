@@ -1,1 +1,44 @@
-<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Tentang Kami | Nama Perusahaan</title><link rel="stylesheet" href="assets/css/style.css"></head><body><?php include __DIR__ . '/includes/header.php'; ?><main><section class="page-banner"><div class="container"><span class="eyebrow light">MENGENAL KAMI</span><h1>Tentang Kami</h1><p>Mengenal perjalanan, nilai, dan komitmen yang menjadi dasar setiap langkah kami.</p></div></section><section class="container section split"><div><span class="eyebrow">PROFIL PERUSAHAAN</span><h2>Bertumbuh dengan Integritas dan Kepercayaan</h2><p>Nama Perusahaan bergerak di bidang [isi bidang usaha]. Kami berkomitmen memberikan produk dan layanan terbaik melalui proses kerja yang profesional, inovatif, dan berorientasi pada kepuasan pelanggan.</p><p>Didukung sumber daya manusia yang kompeten, kami membangun hubungan jangka panjang dengan pelanggan dan mitra.</p></div><img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=85" alt="Tim perusahaan"></section><section class="section soft"><div class="container cards two"><article><b>VISI</b><h2>Visi</h2><p>Menjadi perusahaan terpercaya dan unggul yang memberikan nilai tambah serta manfaat berkelanjutan.</p></article><article><b>MISI</b><h2>Misi</h2><ul><li>Mengutamakan kualitas produk dan layanan.</li><li>Mengembangkan SDM kompeten dan berintegritas.</li><li>Membangun kemitraan yang saling menguntungkan.</li><li>Berinovasi secara konsisten.</li></ul></article></div></section></main><?php include __DIR__ . '/includes/footer.php'; ?></body></html>
+<!doctype html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tentang Kami | Nama Perusahaan</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body><?php include __DIR__ . '/layout/header.php'; ?><main>
+        <section class="page-banner">
+            <div class="container"><span class="eyebrow light">MENGENAL KAMI</span>
+                <h1>Tentang Kami</h1>
+                <p>Mengenal perjalanan, nilai, dan komitmen yang menjadi dasar setiap langkah kami.</p>
+            </div>
+        </section>
+        <section class="container section split">
+            <div><span class="eyebrow">PROFIL PERUSAHAAN</span>
+                <h2>Bertumbuh dengan Integritas dan Kepercayaan</h2>
+                <p>Nama Perusahaan bergerak di bidang [isi bidang usaha]. Kami berkomitmen memberikan produk dan layanan terbaik melalui proses kerja yang profesional, inovatif, dan berorientasi pada kepuasan pelanggan.</p>
+                <p>Didukung sumber daya manusia yang kompeten, kami membangun hubungan jangka panjang dengan pelanggan dan mitra.</p>
+            </div><img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=85" alt="Tim perusahaan">
+        </section>
+        <section class="section soft">
+            <div class="container cards two">
+                <article><b>VISI</b>
+                    <h2>Visi</h2>
+                    <p>Menjadi perusahaan terpercaya dan unggul yang memberikan nilai tambah serta manfaat berkelanjutan.</p>
+                </article>
+                <article><b>MISI</b>
+                    <h2>Misi</h2>
+                    <ul>
+                        <li>Mengutamakan kualitas produk dan layanan.</li>
+                        <li>Mengembangkan SDM kompeten dan berintegritas.</li>
+                        <li>Membangun kemitraan yang saling menguntungkan.</li>
+                        <li>Berinovasi secara konsisten.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+    </main><?php include __DIR__ . '/layout/footer.php'; ?></body>
+
+</html>
