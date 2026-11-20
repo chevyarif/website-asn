@@ -94,6 +94,12 @@ class PengaturanSeeder extends Seeder
                 'updated_at'  => date('Y-m-d H:i:s'),
             ],
             [
+                'kunci'       => 'website',
+                'nilai'       => 'www.pt--asn.co.id',
+                'created_at'  => date('Y-m-d H:i:s'),
+                'updated_at'  => date('Y-m-d H:i:s'),
+            ],
+            [
                 'kunci'       => 'logo',
                 'nilai'       => 'uploads/logo/asn.png',
                 'created_at'  => date('Y-m-d H:i:s'),
