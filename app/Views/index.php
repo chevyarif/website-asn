@@ -1,8 +1,8 @@
-
-  <?=$this->include('layout/header')?>
   <link rel="stylesheet" href="<?=base_url('assets/css/home.css')?>">
   <img src="<?=base_url('assets/images/logo.png')?>" alt="Logo Perusahaan" class="hidden">
   <script src="<?=base_url('assets/js/home.js')?>" defer></script>
+  <?=$this->include('layout/header')?>
+
   <main>
     <section class="hero-home relative overflow-hidden">
       <div class="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/80 to-navy/20"></div>
