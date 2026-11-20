@@ -1,4 +1,16 @@
-<?= $this->include('layout/header'); ?>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beranda | Nama Perusahaan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={theme:{extend:{colors:{navy:'#0B2850',brand:'#1769AA',skysoft:'#EAF3FC'}}}}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="font-site text-slate-700">
+  <div id="header"></div>
   <main>
     <section class="hero-home relative overflow-hidden">
       <div class="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/80 to-navy/20"></div>
@@ -24,5 +36,5 @@
     </div></section>
     <section class="mx-auto max-w-7xl px-6 py-20"><div class="rounded-3xl bg-navy px-8 py-12 text-center md:px-16"><h2 class="text-3xl font-extrabold text-white">Mari Mulai Kerja Sama</h2><p class="mx-auto mt-4 max-w-2xl leading-7 text-blue-100">Diskusikan kebutuhan Anda bersama tim kami. Kami siap membantu menemukan solusi yang tepat.</p><a href="kontak.html" class="btn-light mt-8">Hubungi Kami</a></div></section>
   </main>
-  <?= $this->include('layout/footer'); ?>
+  <div id="footer"></div><script src="assets/site.js"></script>
 </body></html>
