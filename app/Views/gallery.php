@@ -5,22 +5,35 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Gallery | Nama Perusahaan</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="<?= base_url('assets/style.css') ?>">
 </head>
 
-<body><?php include __DIR__ . '/includes/header.php'; ?><main>
-        <section class="page-banner">
-            <div class="container"><span class="eyebrow light">DOKUMENTASI</span>
-                <h1>Gallery</h1>
-                <p>Potret aktivitas, perjalanan, dan momen kolaborasi bersama perusahaan kami.</p>
-            </div>
-        </section>
-        <section class="container section">
-            <div class="center"><span class="eyebrow">MOMEN KAMI</span>
-                <h2>Galeri Kegiatan</h2>
-            </div>
-            <div class="gallery"><img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1000&q=85" alt="Diskusi tim"><img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1000&q=85" alt="Rapat"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=85" alt="Kolaborasi"><img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=85" alt="Kantor"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=85" alt="Pertemuan"><img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1000&q=85" alt="Ruang kerja"></div>
-        </section>
-    </main><?php include __DIR__ . '/includes/footer.php'; ?></body>
+<body>
+<?php include __DIR__ . '/includes/header.php'; ?>
+<main>
+    <section class="page-banner">
+        <div class="container">
+            <span class="eyebrow light">DOKUMENTASI</span>
+            <h1>Gallery</h1>
+            <p>Potret aktivitas, perjalanan, dan momen kolaborasi bersama perusahaan kami.</p>
+        </div>
+    </section>
+    <section class="container section">
+        <div class="center">
+            <span class="eyebrow">MOMEN KAMI</span>
+            <h2>Galeri Kegiatan</h2>
+        </div>
+        <div class="gallery">
+            <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1000&q=85" alt="Diskusi tim">
+            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1000&q=85" alt="Rapat">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=85" alt="Kolaborasi">
+            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=85" alt="Kantor">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=85" alt="Pertemuan">
+            <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1000&q=85" alt="Ruang kerja">
+        </div>
+    </section>
+</main>
+<?php include __DIR__ . '/includes/footer.php'; ?>
+</body>
 
 </html>
