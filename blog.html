@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - ASN</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1f2a37;
+            background-color: #f0f4f8;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            background-color: #0d3554;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+
+        .logo {
+            color: #ffffff;
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #f5a623;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+            gap: 8px;
+        }
+
+        .menu a {
+            color: #cce0f0;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background 0.25s, color 0.25s;
+        }
+
+        .menu a:hover,
+        .menu a.aktif {
+            background-color: #f5a623;
+            color: #1f2a37;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 26px;
+            height: 3px;
+            background: #fff;
+            border-radius: 3px;
+            transition: transform 0.3s;
+        }
+
+        /* =====================================================
+           BLOG HERO
+           ===================================================== */
+        .blog-hero {
+            background: linear-gradient(135deg, #0d3554 0%, #1a6fa3 100%);
+            color: #ffffff;
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-hero h1 {
+            font-size: 42px;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .blog-hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* =====================================================
+           BLOG LAYOUT
+           ===================================================== */
+        .blog-layout {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 40px;
+            padding: 60px 0;
+        }
+
+        /* =====================================================
+           FEATURED POST
+           ===================================================== */
+        .featured-post {
+            grid-column: 1 / -1;
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 40px;
+        }
+
+        .featured-image {
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .featured-post:hover .featured-image img {
+            transform: scale(1.05);
+        }
+
+        .featured-content {
+            padding: 32px;
+        }
+
+        .featured-category {
+            display: inline-block;
+            background: #f5a623;
+            color: #fff;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .featured-content h2 {
+            font-size: 28px;
+            margin-bottom: 12px;
+            color: #0d3554;
+        }
+
+        .featured-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 13px;
+            color: #6b7a8d;
+            margin-bottom: 16px;
+        }
+
+        .featured-excerpt {
+            font-size: 16px;
+            color: #4a5a6b;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .btn-read {
+            display: inline-block;
+            background: #0d3554;
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .btn-read:hover {
+            background: #f5a623;
+        }
+
+        /* =====================================================
+           BLOG GRID
+           ===================================================== */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .blog-card {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .blog-card:hover .card-image img {
+            transform: scale(1.08);
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-category {
+            display: inline-block;
+            background: #e8f0f8;
+            color: #0d3554;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .card-content h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #1f2a37;
+            line-height: 1.4;
+        }
+
+        .card-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 12px;
+            color: #6b7a8d;
+            margin-bottom: 12px;
+        }
+
+        .card-excerpt {
+            font-size: 14px;
+            color: #4a5a6b;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .card-link {
+            color: #0d3554;
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .card-link:hover {
+            color: #f5a623;
+        }
+
+        /* =====================================================
+           SIDEBAR
+           ===================================================== */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .widget {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+        }
+
+        .widget h3 {
+            font-size: 18px;
+            margin-bottom: 16px;
+            color: #0d3554;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #f5a623;
+        }
+
+        /* Search Widget */
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #0d3554;
+        }
+
+        .search-box button {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #0d3554;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* Categories Widget */
+        .categories-list {
+            list-style: none;
+        }
+
+        .categories-list li {
+            margin-bottom: 10px;
+        }
+
+        .categories-list a {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            color: #4a5a6b;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .categories-list a:hover {
+            color: #0d3554;
+        }
+
+        .categories-list span {
+            background: #e8f0f8;
+            color: #0d3554;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        /* Recent Posts Widget */
+        .recent-post {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .recent-post:last-child {
+            margin-bottom: 0;
+        }
+
+        .recent-image {
+            width: 70px;
+            height: 70px;
+            overflow: hidden;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+
+        .recent-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .recent-info h4 {
+            font-size: 14px;
+            margin-bottom: 4px;
+            color: #1f2a37;
+            line-height: 1.3;
+        }
+
+        .recent-info h4:hover {
+            color: #0d3554;
+        }
+
+        .recent-info span {
+            font-size: 11px;
+            color: #6b7a8d;
+        }
+
+        /* Tags Widget */
+        .tags-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tags-list a {
+            display: inline-block;
+            padding: 6px 12px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #4a5a6b;
+            transition: all 0.3s;
+        }
+
+        .tags-list a:hover {
+            background: #0d3554;
+            color: #fff;
+            border-color: #0d3554;
+        }
+
+        /* =====================================================
+           PAGINATION
+           ===================================================== */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 40px;
+        }
+
+        .pagination a,
+        .pagination span {
+            display: inline-block;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .pagination a {
+            color: #0d3554;
+            border: 2px solid #e2e8f0;
+            background: #fff;
+        }
+
+        .pagination a:hover {
+            border-color: #0d3554;
+            background: #0d3554;
+            color: #fff;
+        }
+
+        .pagination .active {
+            background: #0d3554;
+            color: #fff;
+            border-color: #0d3554;
+        }
+
+        /* =====================================================
+           FOOTER
+           ===================================================== */
+        footer {
+            background-color: #0d3554;
+            color: #ffffff;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        .footer-isi {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .footer-logo span {
+            color: #f5a623;
+        }
+
+        .footer-menu {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-menu a {
+            color: #cce0f0;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-menu a:hover {
+            color: #f5a623;
+        }
+
+        .footer-copy {
+            font-size: 13px;
+            opacity: 0.7;
+        }
+
+        /* =====================================================
+           RESPONSIVE
+           ===================================================== */
+        @media (max-width: 992px) {
+            .blog-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #0d3554;
+                flex-direction: column;
+                padding: 20px;
+                gap: 0;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            }
+
+            .menu.buka {
+                display: flex;
+            }
+
+            .menu li {
+                margin: 8px 0;
+            }
+
+            .menu a {
+                display: block;
+                padding: 10px;
+                border-radius: 8px;
+            }
+
+            .blog-hero h1 {
+                font-size: 32px;
+            }
+
+            .featured-content h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- =====================================================
+         HEADER / NAVBAR
+         ===================================================== -->
+    <header>
+        <nav class="navbar container">
+            <div class="logo">A<span>S</span>N</div>
+            <ul class="menu" id="menu">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="about-us.html">Tentang Kami</a></li>
+                <li><a href="product-and-service.html">Produk &amp; Layanan</a></li>
+                <li><a href="blog.html" class="aktif">Blog</a></li>
+                <li><a href="contact.html">Kontak</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- =====================================================
+         BLOG HERO
+         ===================================================== -->
+    <section class="blog-hero">
+        <div class="container">
+            <h1>Blog &amp; Berita</h1>
+            <p>Informasi terbaru, tips, dan panduan seputar dunia ASN dan administrasi kepegawaian</p>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         BLOG CONTENT
+         ===================================================== -->
+    <section class="container">
+        <div class="blog-layout">
+
+            <!-- Main Content -->
+            <div class="blog-main">
+
+                <!-- Featured Post -->
+                <article class="featured-post">
+                    <div class="featured-image">
+                        <img src="https://via.placeholder.com/800x400?text=Panduan+Pengangkatan+ASN+2026" alt="Panduan Pengangkatan ASN 2026">
+                    </div>
+                    <div class="featured-content">
+                        <span class="featured-category">Kepegawaian</span>
+                        <h2>Panduan Lengkap Pengangkatan ASN Tahun 2026</h2>
+                        <div class="featured-meta">
+                            <span>📅 15 Januari 2026</span>
+                            <span>👤 Admin ASN</span>
+                            <span>⏱️ 5 menit baca</span>
+                        </div>
+                        <p class="featured-excerpt">
+                            Semua yang perlu Anda ketahui tentang proses pengangkatan ASN terbaru, persyaratan berkas, tahapan seleksi, hingga penetapan SK pegawai negeri sipil.
+                        </p>
+                        <a href="#" class="btn-read">Baca Selengkapnya →</a>
+                    </div>
+                </article>
+
+                <!-- Blog Grid -->
+                <div class="blog-grid">
+
+                    <!-- Article 1 -->
+                    <article class="blog-card">
+                        <div class="card-image">
+                            <img src="https://via.placeholder.com/400x250?text=Kesejahteraan+ASN" alt="Kesejahteraan ASN">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-category">Kesejahteraan</span>
+                            <h3>Program Kesejahteraan ASN Terbaru 2026</h3>
+                            <div class="card-meta">
+                                <span>📅 10 Januari 2026</span>
+                                <span>👤 Tim Redaksi</span>
+                            </div>
+                            <p class="card-excerpt">
+                                Pemerintah meluncurkan program kesejahteraan baru yang mencakup tunjangan, asuransi kesehatan, dan fasilitas lain bagi seluruh ASN.
+                            </p>
+                            <a href="#" class="card-link">Baca artikel →</a>
+                        </div>
+                    </article>
+
+                    <!-- Article 2 -->
+                    <article class="blog-card">
+                        <div class="card-image">
+                            <img src="https://via.placeholder.com/400x250?text=Pendidikan+Dan+Pelatihan" alt="Pendidikan dan Pelatihan">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-category">Pelatihan</span>
+                            <h3>Jadwal Pendidikan dan Pelatihan ASN 2026</h3>
+                            <div class="card-meta">
+                                <span>📅 5 Januari 2026</span>
+                                <span>👤 Admin ASN</span>
+                            </div>
+                            <p class="card-excerpt">
+                                Lihat jadwal pelatihan dan pengembangan kompetensi untuk ASN di seluruh wilayah Indonesia tahun ini, termasuk pendaftaran online.
+                            </p>
+                            <a href="#" class="card-link">Baca artikel →</a>
+                        </div>
+                    </article>
+
+                    <!-- Article 3 -->
+                    <article class="blog-card">
+                        <div class="card-image">
+                            <img src="https://via.placeholder.com/400x250?text=Transformasi+Digital" alt="Transformasi Digital">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-category">Digitalisasi</span>
+                            <h3>Transformasi Digital Administrasi Kepegawaian</h3>
+                            <div class="card-meta">
+                                <span>📅 28 Desember 2025</span>
+                                <span>👤 Tim Redaksi</span>
+                            </div>
+                            <p class="card-excerpt">
+                                Sistem administrasi kepegawaian kini beroperasi secara digital untuk mempercepat pelayanan kepada ASN tanpa perlu datang ke kantor.
+                            </p>
+                            <a href="#" class="card-link">Baca artikel →</a>
+                        </div>
+                    </article>
+
+                    <!-- Article 4 -->
+                    <article class="blog-card">
+                        <div class="card-image">
+                            <img src="https://via.placeholder.com/400x250?text=Cuti+Bersama" alt="Cuti Bersama">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-category">Cuti</span>
+                            <h3>Cara Pengajuan Cuti Bersama ASN Secara Online</h3>
+                            <div class="card-meta">
+                                <span>📅 20 Desember 2025</span>
+                                <span>👤 Admin ASN</span>
+                            </div>
+                            <p class="card-excerpt">
+                                Panduan langkah demi langkah mengajukan cuti bersama melalui sistem online, dari pengajuan hingga persetujuan atasan.
+                            </p>
+                            <a href="#" class="card-link">Baca artikel →</a>
+                        </div>
+                    </article>
+
+                    <!-- Article 5 -->
+                    <article class="blog-card">
+                        <div class="card-image">
+                            <img src="https://via.placeholder.com/400x250?text=Surat+Keterangan" alt="Surat Keterangan">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-category">Administrasi</span>
+                            <h3>Pengajuan Surat Keterangan Dinas Secara Digital</h3>
+                            <div class="card-meta">
+                                <span>📅 15 Desember 2025</span>
+                                <span>👤 Tim Redaksi</span>
+                            </div>
+                            <p class="card-excerpt">
+                                Cara mudah mengajukan surat keterangan dinas, SKP, dan dokumen resmi lainnya tanpa antre melalui layanan digital ASN.
+                            </p>
+                            <a href="#" class="card-link">Baca artikel →</a>
+                        </div>
+                    </article>
+
+                    <!-- Article 6 -->
+                    <article class="blog-card">
+                        <div class="card-image">
+                            <img src="https://via.placeholder.com/400x250?text=Pensiun+ASN" alt="Pensiun ASN">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-category">Pensiun</span>
+                            <h3>Persiapan Pensiun ASN: Panduan Lengkap</h3>
+                            <div class="card-meta">
+                                <span>📅 10 Desember 2025</span>
+                                <span>👤 Admin ASN</span>
+                            </div>
+                            <p class="card-excerpt">
+                                Semua informasi yang perlu Anda ketahui tentang persiapan pensiun, hitungan tunjangan, dan berkas yang diperlukan.
+                            </p>
+                            <a href="#" class="card-link">Baca artikel →</a>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <a href="#">← Sebelumnya</a>
+                    <span class="active">1</span>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#">Selanjutnya →</a>
+                </div>
+
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+
+                <!-- Search Widget -->
+                <div class="widget">
+                    <h3>Cari Artikel</h3>
+                    <div class="search-box">
+                        <input type="text" placeholder="Ketik kata kunci di sini...">
+                        <button>🔍</button>
+                    </div>
+                </div>
+
+                <!-- Categories Widget -->
+                <div class="widget">
+                    <h3>Kategori</h3>
+                    <ul class="categories-list">
+                        <li><a href="#">Kepegawaian <span>12</span></a></li>
+                        <li><a href="#">Kesejahteraan <span>8</span></a></li>
+                        <li><a href="#">Pelatihan <span>6</span></a></li>
+                        <li><a href="#">Digitalisasi <span>5</span></a></li>
+                        <li><a href="#">Cuti <span>4</span></a></li>
+                        <li><a href="#">Administrasi <span>7</span></a></li>
+                        <li><a href="#">Pensiun <span>3</span></a></li>
+                    </ul>
+                </div>
+
+                <!-- Recent Posts Widget -->
+                <div class="widget">
+                    <h3>Artikel Terbaru</h3>
+                    <div class="recent-post">
+                        <div class="recent-image">
+                            <img src="https://via.placeholder.com/80x80?text=Artikel+1" alt="Artikel 1">
+                        </div>
+                        <div class="recent-info">
+                            <h4>Panduan Pengangkatan ASN 2026</h4>
+                            <span>15 Januari 2026</span>
+                        </div>
+                    </div>
+                    <div class="recent-post">
+                        <div class="recent-image">
+                            <img src="https://via.placeholder.com/80x80?text=Artikel+2" alt="Artikel 2">
+                        </div>
+                        <div class="recent-info">
+                            <h4>Program Kesejahteraan Terbaru</h4>
+                            <span>10 Januari 2026</span>
+                        </div>
+                    </div>
+                    <div class="recent-post">
+                        <div class="recent-image">
+                            <img src="https://via.placeholder.com/80x80?text=Artikel+3" alt="Artikel 3">
+                        </div>
+                        <div class="recent-info">
+                            <h4>Jadwal Pelatihan ASN 2026</h4>
+                            <span>5 Januari 2026</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tags Widget -->
+                <div class="widget">
+                    <h3>Tag Populer</h3>
+                    <div class="tags-list">
+                        <a href="#">#ASN</a>
+                        <a href="#">#Kepegawaian</a>
+                        <a href="#">#Kesejahteraan</a>
+                        <a href="#">#Pelatihan</a>
+                        <a href="#">#Digital</a>
+                        <a href="#">#Cuti</a>
+                        <a href="#">#Pensiun</a>
+                        <a href="#">#Administrasi</a>
+                        <a href="#">#PNS</a>
+                        <a href="#">#Pemerintah</a>
+                    </div>
+                </div>
+
+            </aside>
+
+        </div>
+    </section>
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+    <footer>
+        <div class="container">
+            <div class="footer-isi">
+                <div class="footer-logo">A<span>S</span>N</div>
+                <ul class="footer-menu">
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="about-us.html">Tentang Kami</a></li>
+                    <li><a href="product-and-service.html">Produk &amp; Layanan</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Kontak</a></li>
+                </ul>
+                <div class="footer-copy">
+                    <p>&copy; 2026 ASN. Semua hak dilindungi.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const menu = document.getElementById('menu');
+
+        hamburger.addEventListener('click', function () {
+            menu.classList.toggle('buka');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.menu a').forEach(function (link) {
+            link.addEventListener('click', function () {
+                menu.classList.remove('buka');
+            });
+        });
+    </script>
+
+</body>
+</html>
