@@ -1,8 +1,36 @@
-<!DOCTYPE html>
-<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Produk & Layanan | Nama Perusahaan</title><script src="https://cdn.tailwindcss.com"></script><script>tailwind.config={theme:{extend:{colors:{navy:'#0B2850',brand:'#1769AA',skysoft:'#EAF3FC'}}}}</script><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="assets/style.css"></head>
-<body class="font-site text-slate-700"><div id="header"></div><main><section class="page-hero"><div class="mx-auto max-w-7xl px-6 py-20"><p class="eyebrow text-blue-200">SOLUSI KAMI</p><h1 class="mt-3 text-4xl font-extrabold text-white md:text-5xl">Produk & Layanan</h1><p class="mt-4 max-w-2xl text-lg leading-8 text-blue-100">Temukan pilihan produk dan layanan yang kami siapkan untuk mendukung kebutuhan Anda.</p></div></section>
-<section class="mx-auto max-w-7xl px-6 py-20"><div class="grid gap-7 md:grid-cols-2 lg:grid-cols-3">
-<article class="product-card"><img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=900&q=80" alt="Layanan konsultasi"><div class="p-7"><span class="eyebrow">LAYANAN 01</span><h2 class="mt-2 text-xl font-bold text-navy">Konsultasi & Perencanaan</h2><p class="mt-3 leading-7 text-slate-600">Pendampingan untuk membantu Anda memahami kebutuhan dan menentukan langkah yang tepat.</p><a href="kontak.html" class="mt-5 inline-block font-bold text-brand">Tanyakan layanan →</a></div></article>
-<article class="product-card"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=80" alt="Solusi bisnis"><div class="p-7"><span class="eyebrow">LAYANAN 02</span><h2 class="mt-2 text-xl font-bold text-navy">Solusi Profesional</h2><p class="mt-3 leading-7 text-slate-600">Solusi yang disesuaikan dengan kebutuhan operasional dan tujuan bisnis Anda.</p><a href="kontak.html" class="mt-5 inline-block font-bold text-brand">Tanyakan layanan →</a></div></article>
-<article class="product-card"><img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=80" alt="Kemitraan"><div class="p-7"><span class="eyebrow">LAYANAN 03</span><h2 class="mt-2 text-xl font-bold text-navy">Dukungan & Kemitraan</h2><p class="mt-3 leading-7 text-slate-600">Membangun kolaborasi yang kuat untuk menciptakan hasil yang berkelanjutan.</p><a href="kontak.html" class="mt-5 inline-block font-bold text-brand">Tanyakan layanan →</a></div></article>
-</div><div class="mt-16 rounded-3xl bg-skysoft p-8 text-center md:p-12"><h2 class="text-2xl font-extrabold text-navy">Butuh solusi yang sesuai kebutuhan Anda?</h2><p class="mt-3 text-slate-600">Hubungi tim kami untuk mendapatkan informasi lebih lanjut.</p><a href="kontak.html" class="btn-primary mt-7">Konsultasi Sekarang</a></div></section></main><div id="footer"></div><script src="assets/site.js"></script></body></html>
+<!doctype html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Produk & Layanan | Nama Perusahaan</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body><?php include __DIR__ . '/includes/header.php'; ?><main>
+        <section class="page-banner">
+            <div class="container"><span class="eyebrow light">SOLUSI KAMI</span>
+                <h1>Produk &amp; Layanan</h1>
+                <p>Temukan pilihan produk dan layanan untuk mendukung kebutuhan Anda.</p>
+            </div>
+        </section>
+        <section class="container section">
+            <div class="cards three products">
+                <article><img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=900&q=80" alt="Konsultasi">
+                    <h2>Konsultasi &amp; Perencanaan</h2>
+                    <p>Pendampingan untuk memahami kebutuhan dan menentukan langkah yang tepat.</p><a class="link" href="kontak.php">Tanyakan layanan →</a>
+                </article>
+                <article><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=80" alt="Solusi bisnis">
+                    <h2>Solusi Profesional</h2>
+                    <p>Solusi yang disesuaikan dengan kebutuhan operasional dan tujuan bisnis.</p><a class="link" href="kontak.php">Tanyakan layanan →</a>
+                </article>
+                <article><img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=80" alt="Kemitraan">
+                    <h2>Dukungan &amp; Kemitraan</h2>
+                    <p>Membangun kolaborasi yang kuat untuk hasil berkelanjutan.</p><a class="link" href="kontak.php">Tanyakan layanan →</a>
+                </article>
+            </div>
+        </section>
+    </main><?php include __DIR__ . '/includes/footer.php'; ?></body>
+
+</html>
