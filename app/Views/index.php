@@ -1,5 +1,6 @@
 
-  <?=this->include('layout/header')?>
+  <?=$this->include('layout/header')?>
+
   <main>
     <section class="hero-home relative overflow-hidden">
       <div class="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/80 to-navy/20"></div>
@@ -25,5 +26,5 @@
     </div></section>
     <section class="mx-auto max-w-7xl px-6 py-20"><div class="rounded-3xl bg-navy px-8 py-12 text-center md:px-16"><h2 class="text-3xl font-extrabold text-white">Mari Mulai Kerja Sama</h2><p class="mx-auto mt-4 max-w-2xl leading-7 text-blue-100">Diskusikan kebutuhan Anda bersama tim kami. Kami siap membantu menemukan solusi yang tepat.</p><a href="kontak.html" class="btn-light mt-8">Hubungi Kami</a></div></section>
   </main>
-  <?=this->include('layout/footer')?>
+  <?=$this->include('layout/footer')?>
 </body></html>
